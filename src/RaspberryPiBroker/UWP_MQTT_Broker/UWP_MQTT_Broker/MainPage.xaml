@@ -1,0 +1,64 @@
+﻿<Page
+    x:Class="UWP_MQTT_Broker.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWP_MQTT_Broker"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ListBox Grid.Column="0" x:Name="LstLog"></ListBox>
+        <StackPanel Grid.Column="1" Margin="5">
+            <TextBlock FontWeight="Bold">Broker Infos</TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Broker Ip:</TextBlock>
+                <TextBlock x:Name="TxtBrokerIp">--</TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Broker Port:</TextBlock>
+                <TextBlock x:Name="TxtBrokerPort">--</TextBlock>
+            </StackPanel>
+
+            <StackPanel Margin="5">
+                <TextBlock FontWeight="Bold">Local MQTT client</TextBlock>
+                <Button x:Name="BtnLocalConnect" HorizontalAlignment="Stretch" Click="BtnLocalConnect_Click">Connect</Button>                
+            </StackPanel>
+
+            <StackPanel Margin="5" Padding="5" BorderBrush="Green" BorderThickness="1">
+                <TextBlock FontWeight="Bold">ESP 01</TextBlock>
+                
+                <TextBlock>Topic</TextBlock>
+                <TextBox x:Name="TxtESP8266Topic" Text="esp8266/device1/fromserver/"></TextBox>
+
+                <TextBlock>Payload1</TextBlock>
+                <TextBox x:Name="TxtESP8266Payload1" Text="ON"></TextBox>
+                <Button x:Name="BtnESP8266Send1" HorizontalAlignment="Right" Click="BtnESP8266Send1_Click">Send payload1</Button>
+
+                <TextBlock>Payload2</TextBlock>
+                <TextBox x:Name="TxtESP8266Payload2" Text="OFF"></TextBox>
+                <Button x:Name="BtnESP8266Send2" HorizontalAlignment="Right" Click="BtnESP8266Send2_Click">Send payload2</Button>
+            </StackPanel>
+
+            <StackPanel Margin="5" Padding="5" BorderBrush="Green" BorderThickness="1">
+                <TextBlock FontWeight="Bold">Raspberry Pi Pico W</TextBlock>
+
+                <TextBlock>Topic</TextBlock>
+                <TextBox x:Name="TxtRaspTopic" Text="rasp/device1/fromserver/"></TextBox>
+
+                <TextBlock>Payload1</TextBlock>
+                <TextBox x:Name="TxtRaspPayload1" Text="ON"></TextBox>
+                <Button x:Name="BtnRaspSend1" HorizontalAlignment="Right" Click="BtnRaspSend1_Click">Send payload1</Button>
+
+                <TextBlock>Payload2</TextBlock>
+                <TextBox x:Name="TxtRaspPayload2" Text="OFF"></TextBox>
+                <Button x:Name="BtnRaspSend2" HorizontalAlignment="Right" Click="BtnRaspSend2_Click">Send payload2</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
